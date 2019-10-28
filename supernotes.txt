@@ -273,6 +273,101 @@ Rajesh
     myfile
 
 
+http://bit.ly/2pacTOR
+
+
+Darshankolambkar
+kadankote
+RijuJ
+manuprasadr
+Aravindn01
+safeerkbasheer
+rahulgk88
+gsbabu
+
+yedu-ms
+
+Johnwick5252
+Mohdshoaibansari
+Monaindap@gmail.com OR mrunmayeeindap
+
+rakeysh.radhakrishna@gmail.com
+rakesh881ans
+
+Chandrahas93
+junaidansari007
+Shinzantony
+rakeshr2r
+
+
+shajinairs
+smathew11
+ 
+ Workflow to working with terraform?
+========================================
+Step - 1 - Install terraform        DONE
+
+Step - 2 - Decide a PROVIDERS       DONE
+            AWS
+            Github
+
+Step - 3 - DECIDE a Resources        DONE
+            ec2 instance
+
+Step - 4 - Initialize terraform         DONE
+                - Create a terraform script
+                    - Downloading a PROVIDER
+
+        WHat is the ext of file in which you want to store HCl?
+        - .tf
+        What should be file name?
+        - Any thing
+
+            - First Declate in .tf
+            - Second $ terraform init
+
+provider "aws" {
+  region     = "ap-south-1"
+  access_key = ""
+  secret_key = ""
+}
+
+Step - 5 - Declare resources and Arguments      DONE
+        - In terraform script - 
+                    EC2 -
+                            argruments
+
+
+resource "aws_instance" "web" {
+  ami           = "ami-5b673c34"
+  instance_type = "t2.micro"
+}
+
+
+CREATE -----> UPDATE  ---> DESTROY
+
+Step - 6 - PLAN (DRY RUN)
+            terraform plan
+
+Step - 7 - APPLY (Create a Resoureces)
+            terraform apply
+
+Step - 8 - APPLY  (Update a Resoureces)
+            terraform plan
+            terraform apply
+
+Step - 9 - DESTROY  (DELETE a Resoureces)
+            terraform destroy
+
+
+ACCESS MACHNISM IN AWS
+==============================
+HUMEN TO API TO AWS         -- POLICY - GROUP - USER
+AWS SERVICE TO AWS SERVICE  -- POLICY - ROLES
+-----------------------------
+        IAM
+
+
 
 
 

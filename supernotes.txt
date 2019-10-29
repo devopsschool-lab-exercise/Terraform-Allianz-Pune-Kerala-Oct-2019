@@ -367,6 +367,88 @@ AWS SERVICE TO AWS SERVICE  -- POLICY - ROLES
 -----------------------------
         IAM
 
+==============================DAY 2==========================
+RECAP
+==================
+WHAT IS TERRAFORM?
+WHY WE NEED TERRAFORM?
+    DEVOPS - CI - CD - DEVSECOPS
+
+HOW TO INSTALL TERRAFORM?
+WHAT IS .tf
+WHAT IS HSL
+What is PROVIDERS?
+WHat is Resources?
+WHAT IS ATTRIBUTES?
+------COMMANDS-----------
+terraform plan
+terraform apply
+terraform destroy
+=================================
+
+What is statefile?
+=====================
+It is a file which records all the changes done in your infra through .tf file and used for
+        CREATE
+        UPDATE
+        DELETE
+It is a JSON
+You MUST NOT TOUCH THIS FILE.
+This file can be
+        LOCAL
+        REMOTE
+Name of the resources MUST BE unique to the Provier...NOT ACROSS a PROVIDER
+
+
+
+Working with another PROVIDERS  
+        Github
+        Jenkins 
+        Ansible
+What is Provisionar?
+Types of Provisionar
+How to use Provisionar?
+===================================
+GATHER
+    EC2 instance
+        Execute Ansible
+            Some software Installation
+            Adding users and group
+
+
+PROVIDERS
+    RESOURCES
+        ATTITRIBUTES
+=================================================
+DESIRE -->  JSON STATEFILE ---> INFRA 
+            ACTUAL
+.TF 
+
+
+CHANGE DONE IN - MANUALLY?
+        ---> NOT MATCHING WITH STATE FILE === INFRA
+                    --- DESTROY A RESOURCES - RECREATE It
+                    --- IMPORT FROM INFRA  TO STATE FILE ---
+                                ---- CHNAGS
+
+=============================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

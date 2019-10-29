@@ -479,17 +479,76 @@ provisioner "local-exec" {
     puppet Provisioner
     salt-masterless Provisioner
 
+================================================
 
 
+Terraform -- EC2 Instannce
+                How Do you access this Ec2-instance?
+                -------------------------------
+                ssh-key
+PRIVATE KEYS                PUBLIC KEYS
+YOU                         EC2 Instance
+=============================================
+How to create EC2 Keys and assign to Ec2 Instance?
+1. AWS Would create a pub/pvt....PVT would be given to users. PUBLIC key would copied to Ec2-Instance
+
+2. Import public key to AWS and Use same key for Ec2-Instance. You already have a PRIVATE
+
+WINDOWS ------
+Git bash
+https://git-scm.com/
+
+Command to create public/pvt key 
+$ ssh-keygen
 
 
+MINE - 
+    /Users/rajeshkumar/.ssh/id_rsa.pub
+    /Users/rajeshkumar/.ssh/id_rsa
 
 
+resource "aws_key_pair" "deployer" {
+  key_name   = "rajesh-allianz"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC9Cb4SIaQmq+0CGRGiOD8z5ILYQ93wFZJIROhGv8ZQYmUzOk4zjbcEgq+gqZbKDe0VmY8LbBtRG3U+NXaRVDbsk2pQCvUworXiR6tGj3Cx450w0o6R1vsvDfmqV1ggVBmRh+4FxWnrSSonF7tXCKCIBa5keCNGqxP2/CSbfFlzMY31DPCgscbPT7aR20KA3Wi50Nfonib2djagI56bW9juiXODXROnleABXq5iHgaSRkU6VpdihRSJXOPPUHB2aHlfgZ3A+YvqJPcENH4CIsugX1HyXuB1OAIm1df0FkPZ4G4n0zUryZySFCGnemGD1FSpo2W54F/snYNcfoQFJ0sb rajeshkumar@Rajeshs-MacBook-Pro.local"
+}
 
 
+key_name = "rajesh-allianz"
 
 
+    file Provisioner
+    The file provisioner is used to copy files or directories from the machine executing Terraform to the newly created resource. 
+            https://www.terraform.io/docs/provisioners/file.html
 
+CONNECTION  - AKA - access
+ec2-user
+/Users/rajeshkumar/.ssh/id_rsa
+
+    
+    remote-exec Provisioner
+    The remote-exec provisioner invokes a script on a remote resource after it is created.
+            https://www.terraform.io/docs/provisioners/remote-exec.html
+
+
+provisioner "file" {
+  source      = "index.html"
+  destination = "/tmp/index.html"
+
+}
+
+provisioner "file" {
+  source      = "index.html"
+  destination = "/tmp/index.html"
+
+  connection {
+    type     = "ssh"
+    user     = "ec2-user"
+    private_key = "/Users/rajeshkumar/.ssh/id_rsa"
+  }
+}
+
+==============================================================
+What is Ansible?
 
 
 

@@ -549,15 +549,54 @@ provisioner "file" {
 
 ==============================================================
 What is Ansible?
+-----------------------
+    Config mgmt tool.
+
+Step 1 - Install Ansible 
+Step 2 - Copy playbook.yaml to ec2 instance
+Step 3 - Execute playbook
+$ ansible-playbook localhost playbook.yaml
 
 
+  provisioner "remote-exec" {
+    inline = [
+      "sudo yum install wget -y",
+      "wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm",
+      "sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm",
+      "sudo rpm -i epel-release-latest-7.noarch.rpm",
+      "sudo yum install ansible -y",
+      "sudo yum install git -y",
+      "git clone https://github.com/devops-school/ansible-hello-world-role /tmp/ans_ws",
+      "ansible-playbook /tmp/ans_ws/site.yaml"
+    ]
+  }
 
 
+$ sudo yum install wget -y
+$ wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+$ yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+$ sudo rpm -i epel-release-latest-7.noarch.rpm
+$ sudo yum update -y 
+$ sudo yum install ansible -y
 
 
+Created a Key Pair
+Created a EC2-instance
+    keypair
+    local
+    file
+    remote
 
+==============
+How to use PROVIDERS?
+    HOW TO USE RESOURCES?
+        HOW TO ATTRIBUTES?
+            HOW TO Provisionars
 
-
+Variables
+Meta info of resources
+backend
+Modules
 
 
 

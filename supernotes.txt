@@ -432,7 +432,52 @@ CHANGE DONE IN - MANUALLY?
                                 ---- CHNAGS
 
 =============================================================================
+PROVIDERS
+    RESOURCES
+        ATTITRIBUTES
+        Provisionar
+---------------------------
+What is Provisionar?
+https://www.terraform.io/docs/provisioners/index.html
+    ANY THING WHICH YOU WANT TO DO 
 
+            PRIOR TO BE CREATED RESOURCES
+            WITH CREATED RESOURCES
+            POST CREATED RESOURCES
+
+TYPES OF Provisionar?
+    local-exec Provisioner
+    The local-exec provisioner invokes a local executable after a resource is created. 
+            https://www.terraform.io/docs/provisioners/local-exec.html
+
+provisioner "local-exec" {
+    command = "echo "Welcome to Terraform Allianz Class" >> /Users/rajeshkumar/terraform/local-exec.txt"
+  }
+
+provisioner "local-exec" {
+    command = "/bin/bash deploy.sh"
+  }
+
+provisioner "local-exec" {
+    command = "open WFH, '>completed.txt' and print WFH scalar localtime"
+    interpreter = ["perl", "-e"]
+  }
+
+
+
+    
+    file Provisioner
+    The file provisioner is used to copy files or directories from the machine executing Terraform to the newly created resource. 
+            https://www.terraform.io/docs/provisioners/file.html
+    
+    remote-exec Provisioner
+    The remote-exec provisioner invokes a script on a remote resource after it is created.
+            https://www.terraform.io/docs/provisioners/remote-exec.html
+
+    chef Provisioner
+    habitat Provisioner
+    puppet Provisioner
+    salt-masterless Provisioner
 
 
 

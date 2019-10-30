@@ -853,6 +853,82 @@ Step 2 -  terraform init - ONCE again....
 
 Step 3 - Use it....
 
+=========================
+What is Terraform Module?
+==============================
+Providers
+    Resources
+        Attributes
+        Provisionar
+        Variables
+        files/scripts
+
+-----------------     
+10 PROVIDERS
+200 RESOURCES
+500 VARIABLES
+50 files/script
+--------------------
+    FEW .tf file
+------------------------------
+OPS 
+    web  - nginx
+                - CUSTOM CONFIG FILE
+    APP  - tomcat
+            -- AP
+    DB
+            - mYSQL
+            - Data upload
+    MSC
+        INFRA agent
+        LOG agent
+        pER agent
+=======================
+MODULE
+    DOWNLOAD from where?
+    https://registry.terraform.io/
+
+Module is nothing but a colleciton terraform config file keeping it one dir.
+---- ROOT Module
+            VPC
+            s3
+            EBS
+            web
+            app
+
+
+module "vpc" {
+  source  = "./terraform-aws-vpc"
+  version = "0.5.0"
+  # insert the 1 required variable here
+}
+
+module "mymodule" {
+  source  = "./mymodule"
+}
+
+https://registry.terraform.io/modules/JamesWoolfenden/vpc/aws/0.1.32
+
+Ansible
+    playbook
+    playbooks
+    ROLE
+        ------> Ansible Galaxy
+
+How to create your own module?
+==============================
+
+module "allz" {
+  source  = "./allianz"
+}
+
+================================================================
+Create a Module would setup a entire stack of VPC but in PUBLIC subnet create a EC2 instance and through provisionar and ansible, setup a web server.
+
+index.html MUST SHOW
+" HELLO, I am XXXX from ALINZ"
+
+
 
 
 

@@ -597,6 +597,197 @@ Variables
 Meta info of resources
 backend
 Modules
+=============
+RECAP
+    What is terraform?
+    Why Terraform?
+    Installing terraform?
+    Terraform Architecture
+    How to work with terraform
+    Providers
+        Resources
+            ATTRIBUTES
+            Provisionar
+==========================
+Variables in terraform
+==========================
+What is Variable?
+Variable is having some key:value in multiple format.
+
+Why do we need it?
+    To avoid HARD CODING your terraform config file.
+    Parameterize
+
+What is the kind of variable in Terraform?
+    AKA variable TYPES
+---------- Introduced at very early stage--------------
+1. string
+2. number
+3. bool
+
+4. list
+5. set
+6. map
+7. object
+8. Touple
+
+Where to declare a variable in Terraform?
+1. .tf
+2 .tfvars
+3. Command LINE using -var
+    - CALL a varible file
+    - key:value
+4. ENV variable.
+    TF_VAR_
+
+
+How to declare a variable in Terraform?
+Method 1 - declaring a variable in Terraform config file(.tf).
+
+variable "image_id" {
+  type = string
+  description = "This is for demo of string variable"
+  default = "ami-5b673c34"
+}
+
+variable "count" {
+  type = number
+  description = "This is for demo of number variable"
+  default = 2
+}
+
+variable "validate" {
+  type = bool
+  description = "This is for demo of bool variable"
+  default = true
+}
+
+
+
+How to use it?
+---------------------------
+How to use string TYPE varaible in Teraform?
+
+variable "reponame" {
+  type = string
+  description = "This is for demo of string variable"
+  default = "day3-allianz"
+}
+
+variable "count" {
+  type = number
+  description = "This is for demo of number variable"
+  default = 2
+}
+
+variable "validate" {
+  type = bool
+  description = "This is for demo of bool variable"
+  default = true
+}
+
+resource "github_repository" "web" {
+  name        = "${reponame}"
+  description = "My awesome codebase"
+  private = false
+}
+
+============number with LOOPING =====================
+
+variable "numofusers" {
+  type = number
+  description = "This is for demo of number variable"
+  default = 3
+}
+
+resource "aws_iam_user" "example" {
+  count = "${var.numofusers}"
+  name  = "rajesh.${count.index}"
+}
+
+
+What is the Precendence or order of loading?
+
+
+URL - https://www.terraform.io/docs/configuration/variables.html
+
+=========================================
+
+How do you manage changes?
+Existing infra without terraform 
+1. import a providers resources into a teraform state file.
+
+
+Existing infra with terraform
+----------------------------
+10 Providers
+    100 Resources
+    ADD - Add a resources spec
+    Modify - 
+    Resources Attributes OR Resources Provisionar
+    -- RECREATED         OR null resources
+
+    ConfigItem of VMs ----- 
+            Ansible
+            Chef
+            Puppet
+================================
+MAP
+================================
+
+
+
+
+
+variable "AWS_REGION" {
+  default = "eu-west-1"
+}
+
+variable "AMIS" {
+  type = map(string)
+  default = {
+    us-east-1 = "ami-13be557e"
+    us-west-2 = "ami-06b94666"
+    ap-south-1 = "ami-5b673c34"
+  }
+}
+
+resource "aws_instance" "example" {
+  #ami           = var.AMIS[var.AWS_REGION]
+  ami           = "${lookup(var.AMIS, var.AWS_REGION)}"
+  instance_type = "t2.micro"  
+}
+
+==============================
+Terraform variable using EXTERNAL files
+===================================
+Any file BUT MUST BE with .tfvars
+        IF file name is terraform.tfvars, its automatically detected.
+        If file name is other than terraform.tfvars, you must  pass it through commandline
+
+==============================
+Terraform variable using Command LINE
+===================================
+terraform apply -var-file="testing.tfvars"
+OR
+terraform apply -var="image_id=ami-abc123"
+
+==============================
+Terraform variable using ENV
+===================================
+export TF_VAR_instancetype = t2.micro
+
+
+PROJECTS
+ALL VARS MUST GO TO vars.tf
+ALL VALUES MUST GO TO terraform.tfvars
+RENAME terraform.tfvars to myvalues.tfvars and use command LINE
+RENAME myvalues.tfvars to myvalues.tfvars.bkp  and use ENV Vars
+=================================
+Packer
+===============================
+
+variable "instancetype" {}
 
 
 

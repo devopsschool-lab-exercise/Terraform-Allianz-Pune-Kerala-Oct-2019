@@ -5,7 +5,7 @@ variable "names" {
 }
 # Alternate of for each using count 
 resource "github_repository" "repox" {
-  count = "${var.names}"
+  count = "${length(var.names)}"
   name  = "rajesh.${count.index}"
   description = "My awesome codebase"
   private = false

@@ -790,6 +790,71 @@ Packer
 variable "instancetype" {}
 
 
+Where to declare a Variables 
+- Terraform Config file .tf
+- Command Line
+- Environment
+
+Where to declare a value of Variables 
+- Terraform Config file  .tf
+- .tfvars
+- .tfvars.json
+- Command Line 
+- Environment
+======================
+
+
+NEXT PROBLEM?
+managing State 
+====================================
+Where you can store terraform state file?
+    - local
+    - Remote AKA BACKEND
+            - S3
+            - Git
+            - Consul
+
+
+Step 1 -  Add a Backend Code in Terraform Config
+terraform {
+  backend "s3" {
+    bucket = "allianz66666"
+    key    = "terraform.tfstate"
+    region = "ap-south-1"
+  }
+}
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::mybucket"
+    },
+    {
+      "Effect": "Allow",
+      "Action": ["s3:GetObject", "s3:PutObject"],
+      "Resource": "arn:aws:s3:::allianz66666/terraform.tfstate"
+    }
+  ]
+}
+
+
+terraform {
+  backend "consul" {
+    address = "demo.consul.io"
+    scheme  = "https"
+    path    = "full/path"
+  }
+}
+
+Step 2 -  terraform init - ONCE again....
+
+Step 3 - Use it....
+
+
+
 
 
         

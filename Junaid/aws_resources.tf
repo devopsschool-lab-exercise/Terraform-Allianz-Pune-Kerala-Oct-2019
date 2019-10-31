@@ -12,7 +12,6 @@ module "vpc" {
  source  = "terraform-aws-modules/vpc/aws"
  version = "2.17.0"
  # insert the 8 required variables here
- //region = "ap-south-1"
  name = "Junaid_VPC"
  cidr = "10.0.0.0/16"
  azs             = ["ap-south-1a", "ap-south-1b", "ap-south-1c"]

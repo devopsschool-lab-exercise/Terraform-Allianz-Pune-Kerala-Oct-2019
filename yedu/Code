@@ -54,8 +54,8 @@ Validate your files:
 terraform validate
 Plan the deployment:
 
-export AWS_ACCESS_KEY_ID="AKIAVC6RVVYMNN5NCL7X"
-export AWS_SECRET_ACCESS_KEY="4m1HRWU5tXwNl9/xPyTJM/JRulnrLv/jqq2f8+nH"
+export AWS_ACCESS_KEY_ID="
+export AWS_SECRET_ACCESS_KEY="
 export AWS_DEFAULT_REGION="us-east-1"
 
 

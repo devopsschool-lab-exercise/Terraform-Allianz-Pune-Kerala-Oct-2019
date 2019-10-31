@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"ec2","Source":"./ec2create","Dir":"ec2create"},{"Key":"vpc","Source":"JamesWoolfenden/vpc/aws","Version":"0.1.32","Dir":".terraform/modules/vpc/JamesWoolfenden-terraform-aws-vpc-7012e6a"}]}

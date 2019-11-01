@@ -1215,7 +1215,24 @@ https://www.devopsschool.com/blog/terraform-workspace-explained/
   748  clear
   749  ls
   750  tree
-  
+========================
+Terraform Import
+==========================
+
+You can import EXISTING RESOURCES INTo STATE file.
+Such as - ec2-instance created manually can be imported to tf state file using import commands.
+
+Terraform file - NEED TO BE WRITTEN MANUALLY.
+=============================================
+In FUTURE - import command also would write TERAFORM config
+
+Site to Site
+Express ROUTE
+
+terraform at Jenkins?
+ - Using JOBS
+ - Using Jenkins pipeline
+
 Terraform Built-in Functions
 https://www.terraform.io/docs/configuration/functions.html
 
@@ -1223,5 +1240,42 @@ Terraform local VALUES
 https://www.devopsschool.com/blog/local-values-is-defined-in-terraform/
 
 
+https://www.devopsschool.com/pdf/terraform/
 
+=========================
+How to find all the training resources after a this day.
 
+Notes -
+https://www.devopsschool.com/notes
+https://github.com/devopsschool-lab-exercise
+
+Slides - html
+https://www.devopsschool.com/slides/terraform/
+
+Slides - pdf
+https://www.devopsschool.com/pdf/terraform/
+
+blog
+https://www.devopsschool.com/blog/category/terraform/
+
+Tutorails
+https://www.devopsschool.com/tutorial/terraform/
+
+Assignment - EX - Projects
+https://www.devopsschool.com/blog/terrform-project-assignment-exercise-part-2/
+https://www.devopsschool.com/blog/terrform-project-assignment-exercise-part-1/
+
+Videos
+https://www.youtube.com/channel/UCrXr49kBvXJeQMMl2693c4g
+
+Quiz | QA
+https://www.devopsschool.com/lms/my/
+
+Support
+https://groups.google.com/forum/#!forum/devopsschool-classroom-support
+
+How to reach out to me?
+http://rajeshkumar.xyz/
+
+FEEDBACK - 
+https://www.google.com/maps/place/DevOpsSchool.com/@12.964943,77.5973786,17z/data=!3m1!4b1!4m5!3m4!1s0x3bae15d656aeaaab:0xe5ca07dae2353764!8m2!3d12.9649378!4d77.5995726

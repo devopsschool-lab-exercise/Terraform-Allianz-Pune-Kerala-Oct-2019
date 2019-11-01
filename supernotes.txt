@@ -928,15 +928,51 @@ Create a Module would setup a entire stack of VPC but in PUBLIC subnet create a 
 index.html MUST SHOW
 " HELLO, I am XXXX from ALINZ"
 
+=============================================
+What is DATA SOURCE?
+----------------------------
+DO SOMTHING to get DATA from EXISTING RESOURCES and USE THAT DATA IN YOUR CURRENT RESOURCES.
+https://www.terraform.io/docs/configuration/data-sources.html
 
+EC2 insance in VPC - XYZ
+Security group
+IAM - 
+===========================================
+Compiled ---> Intrepret Lang --> Declarative  Lang  
+=========
+Decalare your desire ---> PERFORMING YOUR DESIRE.
 
-
-
-
+==================================
+DOMAIN
+    IT
+        INFRA
+                vpc module--> OUTPUT..
+        MONITORING
+    DB
+        INSTALL DB
+        SETUP DB n IMPO
+    APP
+        INSTALL PRE
+        INSTALL APP
         
 
 
-        
+data "aws_availability_zones" "available" {
+  state = "available"
+}
+
+data "aws_availability_zones" "availability_zones" {}
+
+resource "aws_vpc" "myvpc" {
+cidr_block = "10.0.0.0/16"
+tags {
+Name = "myvpc"
+}
+}
+
+resource "aws_vpc" "main" {
+  cidr_block = "10.0.0.0/16"
+}
 
 
 
@@ -946,28 +982,245 @@ index.html MUST SHOW
 
 
 
+WORKING WITH AZURE
+======================
+
+https://docs.microsoft.com/en-us/azure/virtual-machines/linux/terraform-create-complete-vm
+
+
+Required:
+
+Subscription
+    ResourceGroup
+Virutal Machine 
+Region
+Image
+Size - B1ms
+Authenticated Type
+----
+    Username
+    Password
+    Confirm Password
+Public Inbound Port
+Os disk Type
+Virtual Network
+subnet
+PIblic IP
+Public Inbound Ports
+Diag Storage Accoint
 
 
 
+Subscription
+region
+Resource group
+Storage account
+File share
+-------------
 
 
+WAY 1 iN RESOURCEs.TF
+"${element(module.vpc.public_subnets,0)}"
+
+WAY2
+
+module "elb" {
+  source = "./tfmodules/elb/"
+  public_subnets = "${list("${module.vpc.public_subnet_1_id}", "${module.vpc.public_subnet_2_id}")}"
+}
+
+init
+plan
+APPLY
+destroy
+
+Terraform Basic Workflow
+https://www.devopsschool.com/blog/terraform-basics-workflow-loop-explained/
+
+Terraform Advance Workflow
+https://www.devopsschool.com/blog/terraform-advance-workflow-loop-explained/
+
+  546  clear
+  547  terraform validate
+  548  terraform providers
+  549  terraform graph
+  550  clear
+  551  ls
+  552  terraform plan
+  553  vi all.tf
+  554  terraform plan
+  555  clear
+  556  terraform apply
+  557  clear
+  558  terraform -help apply
+  559  terraform apply -auto-approve
+  560  terraform show
+  561  clear
+  562  terraform output
+  563  vi all.tf
 
 
+Terraform Environment Variables
+https://www.devopsschool.com/blog/terraform-environment-variables-exaplained/
 
 
+588  export TF_LOG=INFO
+  589  echo $TF_LOG
+  590  terraform apply
+  591  terraform destory
+  592  terraform destroy
+  593  export TF_LOG=WARN
+  594  terraform apply
+  595  terraform destroy
+  596  terraform destroy
+  597  clear
+  598  terraform destroy
+  599  clear
+  600  terraform destroy
+  601  clear
+  602  ls
+  603  echo $TF_LOG
+  604  clear
+  605  export TF_LOG=TRACE
+  606  clear
+  607  ls
+  608  clear
+  609  ls
+  610  export TF_LOG_PATH=./terraform.log
+  611  terraform apply -auto-approve
+  612  ls
+  613  more terraform.log
+  614  cleae
+  615  clear
+  616  ls
+  617  clear
+  618  ls
+  619  ls
+  620  clear
+  621  ls
+  622  clear
+  623  clear
+  624  ls
+  625  vi all.tf
+  626  terraform apply
+  627  clear
+  628  ls
+  629  export TF_INPUT=0
+  630  terraform apply
+  631  clear
+  632  ls
+  633  vi all.tf
+  634  clear
+  635  ls
+  636  vi all.tf
+  637  terraform -help apply
+  638  terraform apply -var 'loadbalancer=xyz'
+  639  vi all.tf
+  640  clear
+  641  terraform apply -var 'loadbalancer=xyz'
+  642  vi all.tf
+  643  terraform apply -var 'loadbalancer=xyz'
+  644  terraform apply -var 'loadbalancer=xyz' -auto-approve
+  645  terraform apply -var 'loadbalancer=xyz' -auto-approve
+  646  clear
+  647  history
+  648  clear
+  649  export TF_CLI_ARGS="-var 'loadbalancer=xyz' -auto-approve"
+  650  echo $TF_CLI_ARGS
+  651  terraform apply
+  652  unset TF_CLI_ARGS
+  653  echo $TF_CLI_ARGS
+  654  clear
+  655  terraform apply
+  656  export TF_CLI_ARGS_apply="-var 'loadbalancer=xyz' -auto-approve"
+  657  terraform apply
+  658  clear
+  659  ls
+  660  ls -pa
+  661  ls -la
+  662  terraform apply
+  663  terraform destory
+  664  terraform destroy
+  665  export TF_CLI_ARGS="-var 'loadbalancer=xyz' -auto-approve"
+  666  clear
+  667  terraform destroy
+  668  terraform plan
+  669  unset TF_CLI_ARGS
+  670  unset export TF_CLI_ARGS_plan="-var 'loadbalancer=xyz' -auto-approve"
+  671  clear
+  672  export TF_CLI_ARGS_plan="-var 'loadbalancer=xyz' -auto-approve"
+  673  clear
+  674  terraform plan
+  675  pwd
+  676  ;s
+  677  clear
+  678  ls
+  679  terraform plan
+  680  echo $PATH
+  681  echo env
+  682  echo $env
+  683  env
+  684  env | grep TF
+  685  clear
+  686  env | grep TF
+  687  unset TF_CLI_ARGS_plan
+  688  unset TF_INPUT
+  689  terraform plan
+  690  clear
+  691  ls
+  692  export TF_IN_AUTOMATION=rr
+  693  terraform plan
+  694  clear
+  695  history
 
+Terraform workspace
+https://www.devopsschool.com/blog/terraform-workspace-explained/
 
+712  ls -la
+  713  cd .terraform/
+  714  clear
+  715  tree
+  716  clear
+  717  ls
+  718  cd ..
+  719  ls
+  720  terraform workspace
+  721  terraform workspace list
+  722  terraform workspace new dev
+  723  terraform workspace new prod
+  724  clearc
+  725  clear
+  726  ls
+  727  terraform workspace list
+  728  terraform workspace select dev
+  729* terraform workspace lis
+  730  terraform workspace select default
+  731  clear
+  732  ls
+  733  terraform workspace list
+  734  terraform workspace select dev
+  735  terraform workspace list
+  736  terraform apply
+  737  ls
+  738  cd .terraform/
+  739  clear
+  740  tree
+  741  more environment
+  742  clear
+  743  ls
+  744  cd ..
+  745  ls
+  746  ls -la
+  747  cd terraform.tfstate.d
+  748  clear
+  749  ls
+  750  tree
+  
+Terraform Built-in Functions
+https://www.terraform.io/docs/configuration/functions.html
 
-
-
-
-
-
-
-
-
-
-
+Terraform local VALUES
+https://www.devopsschool.com/blog/local-values-is-defined-in-terraform/
 
 
 
